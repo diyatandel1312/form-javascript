@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registraction Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+     
+        <h2 class="text-center" style="color:rgb(5, 5, 5)">Registraction Form</h2>
+        <div class="col-lg-4 card m-auto">
+          <div class="card-body">
+        
+            <form id="registractionForm"  class="row  needs-validation" novalidate>
+              <div class="mb-3">
+                <label for="fname" class="form-label">First name</label>
+                <input type="text" class="form-control" id="fname" autocomplete="off" placeholder="Enter Your First Name" required>
+                <div class="invalid-feedback">
+                  Please Enter Your First Name
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="lname" class="form-label">Last name</label>
+                <input type="text" class="form-control" id="lname" autocomplete="off" placeholder="Enter your Last Name" required>
+                <div class="invalid-feedback">
+                  Please Enter Your Last Name 
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" autocomplete="off" placeholder="Enter Your Emali" required>
+                  <div class="invalid-feedback">
+                    Please Enter Your Email
+                  </div>
+                </div>
+             
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" autocomplete="off" placeholder="Enter Your Password" required>
+                <div class="invalid-feedback">
+                  Please Enter Your Password
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="city" class="form-label">City</label>
+                <input type="city" class="form-control" id="city"  placeholder="Enter Your City" required>
+                <div class="invalid-feedback">
+                  Please Enter Your City
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <input type="country" class="form-control" id="country" autocomplete="off"  placeholder="Enter Your Country" required>
+                <div class="invalid-feedback">
+                  Please Enter Your Country
+                </div>
+              </div>
+           
+              <div class="col-12" style="text-align: center;">
+                <button class="btn btn-primary confirmbtn" type="submit" id="confirmButton">Submit </button>
+                <button class="btn btn-secondary cancelbtn" type="cancel" id="cancelButton">Cancel</button>
+              </div>
+            </form>
+          </div>
+              
+        </div>
+      
+        </div>
+    </div>
+  </div>
+   
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+
+
+
+      function ValidateEmail(email)
+{
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if(email.value.match(mailformat))
+{
+  document.registractionform.coemail.focus();
+  return true;
+
+}
+else
+{
+  alert("You have entered an invalid email address!Enter again");
+  document.registractionform.reset(); 
+  return false;
+}
+}
+  
+
+     function showSuccessMessage() {
+            const successAlert = document.getElementById("successAlert");
+            successAlert.style.display = "block";
+
+            
+            setTimeout(function() {
+                successAlert.style.display = "none";
+            }, 1000); 
+        }
+   
+      function clearForm() {
+            document.getElementById("registractionForm").reset(); 
+        }
+
+
+        document.getElementById("cancelButton").addEventListener("click", function () {
+          
+            document.getElementById("fname").value = "";
+            document.getElementById("lname").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
+            document.getElementById("city").value = "";
+            document.getElementById("country").value = "";
+        });
+
+        document.getElementById("confirmButton").addEventListener("click", function () {
+          
+            const fname = document.getElementById("fname").value;
+            const lname = document.getElementById("lname").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const city = document.getElementById("city").value;
+            const country = document.getElementById("country").value;
+           
+         
+             if (!fname || !lname ||  !email || !password || !city || !country) {
+                 alert("Please fill in all required fields.");
+                return false; 
+          }
+         
+            console.log("FirstName:", fname);
+            console.log("LastName:", lname);
+            console.log("Email:", email);
+            console.log("Password:", password);
+            console.log("City:", city);
+            console.log("Country:", country);
+          
+            clearForm();
+            // handleSubmit();
+        
+        });
+</script>
+
+<script>
+  (function () {
+  'use strict'
+
+ 
+  var forms = document.querySelectorAll('.needs-validation')
+
+ 
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
+
+</body>
+</html>

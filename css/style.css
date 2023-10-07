@@ -1,0 +1,36 @@
+body {
+    background: linear-gradient(to bottom, #3498db, #3ce7a0);
+    color: white;
+}
+.container {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.confirmbtn{
+    background-color: #090a0a;
+    font-size: 15px;
+    transition-duration: 0.4s;
+    border: none;
+    
+    
+}
+
+.confirmbtn:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.cancelbtn{
+    background-color: #3ce7a0;
+    font-size: 15px;
+    transition-duration: 0.4s;
+    border:none
+    
+}
+
+.cancelbtn:hover{
+    background-color:  #3498db;
+    color:white;
+}
